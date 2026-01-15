@@ -1,1 +1,14 @@
 #全局配置
+paths:
+  raw_pdfs: /data/pdfs
+  parsed_text: /data/parsed
+  chunks: /data/chunks
+  embeddings: /data/embeddings
+  faiss_index: /data/indices
+
+db:
+  type: sqlite
+  path: /data/meta.db
+
+runtime:
+  num_workers: 8

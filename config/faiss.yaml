@@ -1,1 +1,5 @@
 #索引类型、shard参数
+index_type: IVF_PQ
+nlist: 65536
+nprobe: 32
+pq_m: 64
