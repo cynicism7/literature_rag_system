@@ -1,0 +1,27 @@
+# RAG系统依赖包
+# Python 3.11环境
+
+# 核心依赖
+numpy>=1.24.0
+PyYAML>=6.0
+
+# 向量数据库
+faiss-cpu>=1.7.4
+# 如果有GPU，可以使用 faiss-gpu 替代 faiss-cpu
+# faiss-gpu>=1.7.4
+
+# 深度学习框架
+torch>=2.0.0
+# 如果有GPU，需要安装支持CUDA的PyTorch版本
+# 访问 https://pytorch.org/get-started/locally/ 获取正确的安装命令
+# 例如: pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+
+# 文本嵌入模型
+sentence-transformers>=2.2.0
+
+# 数据库
+sqlalchemy>=2.0.0
+
+# PDF解析
+PyMuPDF>=1.23.0
+

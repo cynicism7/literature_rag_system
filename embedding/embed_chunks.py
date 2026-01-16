@@ -4,9 +4,15 @@ import numpy as np
 from sentence_transformers import SentenceTransformer
 from database.db import DB
 import yaml
+import torch
 
 class ChunkEmbedder:
     def __init__(self, model_name, device):
+        # 自动检测CUDA是否可用
+        if device == "cuda" and not torch.cuda.is_available():
+            print("警告: 配置使用CUDA，但PyTorch未编译CUDA支持，自动切换到CPU")
+            device = "cpu"
+        
         self.model = SentenceTransformer(model_name, device=device)
 
         with open("config/system.yaml") as f:
