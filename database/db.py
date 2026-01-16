@@ -1,17 +1,22 @@
-#DB连接与基础封装
-import sqlite3
+from sqlalchemy import create_engine, text
 
 class DB:
-    def __init__(self, path):
-        self.conn = sqlite3.connect(path)
+    def __init__(self, cfg: dict):
+        if cfg["type"] != "sqlite":
+            raise ValueError("This project is locked to SQLite")
 
-    def execute(self, sql, params=()):
-        cur = self.conn.cursor()
-        cur.execute(sql, params)
-        self.conn.commit()
-        return cur
+        uri = f"sqlite:///{cfg['path']}"
+        self.engine = create_engine(
+            uri,
+            echo=False,
+            future=True
+        )
 
-    def query(self, sql, params=()):
-        cur = self.conn.cursor()
-        cur.execute(sql, params)
-        return cur.fetchall()
+    def execute(self, sql: str, params: dict | None = None):
+        with self.engine.begin() as conn:
+            conn.execute(text(sql), params or {})
+
+    def query(self, sql: str, params: dict | None = None):
+        with self.engine.begin() as conn:
+            result = conn.execute(text(sql), params or {})
+            return result.fetchall()

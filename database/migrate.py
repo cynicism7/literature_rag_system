@@ -1,7 +1,7 @@
-#表升级工具
-from db import DB
+from database.db import DB
 
-def migrate(db_path, schema_path):
-    db = DB(db_path)
-    with open(schema_path) as f:
-        db.conn.executescript(f.read())
+def migrate(db_cfg, schema_path):
+    db = DB(db_cfg)
+    with open(schema_path, encoding="utf-8") as f:
+        sql = f.read()
+    db.execute(sql)

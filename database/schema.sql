@@ -1,4 +1,4 @@
-CREATE TABLE paper (
+CREATE TABLE IF NOT EXISTS paper (
     paper_id TEXT PRIMARY KEY,
     title TEXT,
     authors TEXT,
@@ -7,15 +7,15 @@ CREATE TABLE paper (
     path TEXT
 );
 
-CREATE TABLE chunk (
-    chunk_id INTEGER,
+CREATE TABLE IF NOT EXISTS chunk (
     paper_id TEXT,
+    chunk_id INTEGER,
     text TEXT,
     section TEXT,
     PRIMARY KEY (paper_id, chunk_id)
 );
 
-CREATE TABLE embedding (
+CREATE TABLE IF NOT EXISTS embedding (
     paper_id TEXT,
     chunk_id INTEGER,
     vector_path TEXT,
