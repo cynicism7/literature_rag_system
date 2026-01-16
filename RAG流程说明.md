@@ -165,7 +165,7 @@ cp /path/to/your/papers/*.pdf data/raw_pdfs/
 将PDF文件转换为chunks：
 
 ```bash
-python run.py
+python run_pipline.py
 ```
 
 **功能：**
