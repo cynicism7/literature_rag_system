@@ -1,13 +1,13 @@
 paths:
-  raw_pdfs: ./data/raw_pdfs
-  parsed_text: ./data/parsed_text
-  chunks: ./data/chunks
-  embeddings: ./data/embeddings
-  faiss_index: ./data/indices
+  raw_pdfs: E:/RAG/data/raw_pdfs
+  parsed_text: E:/RAG/data/parsed_text
+  chunks: E:/RAG/data/chunks
+  embeddings: E:/RAG/data/embeddings
+  faiss_index: E:/RAG/data/indices
 
 db:
   type: sqlite
-  path: ./data/meta.db
+  path: E:/RAG/data/meta.db
 
 runtime:
   num_workers: 2

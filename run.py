@@ -16,3 +16,4 @@ if __name__ == "__main__":
     run_ingestion(pdf_dir, chunk_dir)
 
     print("[INGESTION] done")
+
