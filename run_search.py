@@ -12,6 +12,7 @@ from retrieval.query_encoder import QueryEncoder
 from retrieval.recall import recall
 from database.db import DB
 
+
 def load_metadata(metadata_path):
     """加载元数据映射"""
     with open(metadata_path, "r", encoding="utf-8") as f:
@@ -276,4 +277,3 @@ if __name__ == "__main__":
         print(f"错误: {e}")
         import traceback
         traceback.print_exc()
-

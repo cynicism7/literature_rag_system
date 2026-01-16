@@ -1,7 +1,10 @@
 #query->embedding
 from sentence_transformers import SentenceTransformer
 import torch
+import re
 
+def contains_chinese(text: str) -> bool:
+    return re.search(r'[\u4e00-\u9fff]', text) is not None
 class QueryEncoder:
     def __init__(self, model_name, device=None):
         # 如果没有指定设备，自动检测

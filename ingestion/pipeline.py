@@ -6,6 +6,7 @@ from ingestion.metadata_extractor import extract_metadata
 from database.db import DB
 import yaml
 
+
 def load_db():
     with open("config/system.yaml") as f:
         cfg = yaml.safe_load(f)
