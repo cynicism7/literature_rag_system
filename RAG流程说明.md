@@ -294,7 +294,7 @@ python run_qa.py "为什么深度学习需要大量数据"
 
 ## 完整流程总结
 
-1. **文档分块** (`run.py`)
+1. **文档分块** (`run_pipline.py`)
    - PDF → 文本 → chunks
 
 2. **向量化** (`run_embedding.py`)
