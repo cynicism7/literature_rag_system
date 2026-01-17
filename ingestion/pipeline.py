@@ -27,8 +27,8 @@ def run_ingestion(pdf_dir, chunk_out_dir):
         # 1. PDF → text
         text = parse_pdf(pdf_path)
 
-        # 2. 提取元数据
-        meta = extract_metadata(text)
+        # 2. 提取元数据（优先使用PDF元数据和布局分析）
+        meta = extract_metadata(text, pdf_path=pdf_path)
         meta.update({
             "paper_id": paper_id,
             "path": pdf_path
